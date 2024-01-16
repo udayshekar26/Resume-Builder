@@ -1,24 +1,49 @@
 import logo from './logo.svg';
+
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
+// import './App.css';
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import Navbar from './components/Navbar';
+// import ResumeTemplates from './components/ResumeTemplates';
+
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Navbar/>
+//       <ResumeTemplates/>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// App.js
+import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ResumeTemplates from './components/ResumeTemplates';
+import FormPage from './components/FormPage'; // Import FormPage component
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ResumeTemplates />} />
+          <Route path="/form-filling" element={<FormPage />} /> {/* Add this route */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
